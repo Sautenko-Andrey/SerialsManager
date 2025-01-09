@@ -1,0 +1,69 @@
+# Compiled binary files
+*.exe
+*.out
+*.app
+
+# Object files
+*.o
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lib
+*.a
+
+# Debug files
+*.pdb
+*.ilk
+*.idb
+
+# IDE/Editor files
+.vscode/
+*.code-workspace
+.idea/
+*.suo
+*.user
+*.userossc
+*.rsuser
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+build/
+Makefile
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.DS_Store
+*.directory
+
+# Dependency directories
+deps/
+dependencies/
+vendor/
+
+# Generated files
+*.generated.*
+
+# Unit test and coverage files
+*.gcda
+*.gcno
+*.gcov
+coverage/
+
+# System specific files
+Thumbs.db
+desktop.ini
