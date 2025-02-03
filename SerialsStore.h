@@ -7,21 +7,23 @@ class SerialsStore {
 
 public:
 
-    SerialsStore(const std::shared_ptr<SimpleSerialsFactory> factory)
-    : m_factory{factory}{}
+    SerialsStore(std::unique_ptr<SimpleSerialsFactory> factory)
+    : m_factory{std::move(factory)}{}
 
-    std::shared_ptr<Serial> createSerial(AvailableSerials selected_serial, 
+
+    std::unique_ptr<Serial> createSerial(AvailableSerials selected_serial, 
                                        std::string &season,
                                        std::string &lang){
 
-        std::shared_ptr<Serial> serial{nullptr};
+        std::unique_ptr<Serial> serial{nullptr};
 
         serial = m_factory->createSerial(selected_serial, season, lang);
 
-        return serial;
+        return std::move(serial);
     }
 
 
 private:
-    std::shared_ptr<SimpleSerialsFactory> m_factory{nullptr};
+    
+    std::unique_ptr<SimpleSerialsFactory> m_factory{nullptr};
 };

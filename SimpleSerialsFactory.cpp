@@ -11,50 +11,50 @@
 #include<iostream>
 
 
-std::shared_ptr<Serial> SimpleSerialsFactory::createSerial(
+std::unique_ptr<Serial> SimpleSerialsFactory::createSerial(
     AvailableSerials selected_serial,
     std::string &season,
     std::string &lang
 )
 {
-    std::shared_ptr<Serial> serial{nullptr};
+    std::unique_ptr<Serial> serial{nullptr};
 
     switch (selected_serial)
     {
     case AvailableSerials::Brassic:
-        serial = std::make_shared<Brassic>(season, lang);
+        serial = std::make_unique<Brassic>(season, lang);
         break;
 
     case AvailableSerials::HowIMetYourMother:
-        serial = std::make_shared<HIMYM>(season, lang);
+        serial = std::make_unique<HIMYM>(season, lang);
         break;
 
     case AvailableSerials::TwoAndAHalfMen:
-        serial = std::make_shared<THM>(season, lang);
+        serial = std::make_unique<THM>(season, lang);
         break;
 
     case AvailableSerials::AccordingToJim:
-        serial = std::make_shared<ATJ>(season, lang);
+        serial = std::make_unique<ATJ>(season, lang);
         break;
 
     case AvailableSerials::SiliconValley:
-        serial = std::make_shared<SiliconValley>(season, lang);
+        serial = std::make_unique<SiliconValley>(season, lang);
         break;
 
     case AvailableSerials::BigBangTheory:
-        serial = std::make_shared<BigBangTheory>(season, lang);
+        serial = std::make_unique<BigBangTheory>(season, lang);
         break;
 
     case AvailableSerials::PoorPeople:
-        serial = std::make_shared<PoorPeople>(season, lang);
+        serial = std::make_unique<PoorPeople>(season, lang);
         break;
 
     case AvailableSerials::NewGirl:
-        serial = std::make_shared<NewGirl>(season, lang);
+        serial = std::make_unique<NewGirl>(season, lang);
         break;
 
     case AvailableSerials::Interni:
-        serial = std::make_shared<Interni>(season, lang);
+        serial = std::make_unique<Interni>(season, lang);
         break;
 
     default:
@@ -63,5 +63,5 @@ std::shared_ptr<Serial> SimpleSerialsFactory::createSerial(
         std::exit(1);
     }
 
-    return serial;
+    return std::move(serial);
 }

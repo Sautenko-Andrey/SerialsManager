@@ -13,7 +13,7 @@ class SimpleSerialsFactory {
 
 public:
 
-    std::shared_ptr<Serial> createSerial(
+    std::unique_ptr<Serial> createSerial(
         AvailableSerials selected_serial,
         std::string &season,
         std::string &lang

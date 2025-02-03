@@ -12,7 +12,7 @@ THM::THM(const std::string &season, const std::string &lang)
     setVoiceUrlEng(m_orig_voice);
     setSeasonUrl(m_season_template);
     setMaxSeasonNumber(m_seasons_nums);
-    setSeasonsPrintBehavior(std::make_shared<HasSeasonsPrintBehavior>());
+    setSeasonsPrintBehavior(std::make_unique<HasSeasonsPrintBehavior>());
 }
 
 

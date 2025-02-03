@@ -104,11 +104,9 @@ int main(int argc, char **argv){
     }
 
     // Test serials store
-    SerialsStore serials_store(std::make_shared<SimpleSerialsFactory>());
+    SerialsStore serials_store(std::make_unique<SimpleSerialsFactory>());
 
     // Set up and play serial
-    //auto selected_serial = serials_store.playSerial(serial, season, voice);
-    
     auto selected_serial = serials_store.createSerial(serial, season, voice);
     
     // If user wants to print a list of seasons for the choosen serial

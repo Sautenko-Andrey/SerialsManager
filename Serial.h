@@ -27,10 +27,10 @@ public:
 
     void printSeasons() const;
 
-    void setSeasonsPrintBehavior(
-        std::shared_ptr<SeasonsPrintBehavior> behavior);
 
-    const std::string& getSerialFullName() const;
+    void setSeasonsPrintBehavior(
+        std::unique_ptr<SeasonsPrintBehavior> &&behavior);
+    
 
 private:
 
@@ -45,6 +45,6 @@ private:
     std::string m_voice_url_rus{""};
     std::string m_season_url{""};
     int m_max_season_number{1};
-    std::shared_ptr<SeasonsPrintBehavior> m_ptr_seasons_print{nullptr};
+    std::unique_ptr<SeasonsPrintBehavior> m_ptr_seasons_print{nullptr};
 
 };

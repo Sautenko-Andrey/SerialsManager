@@ -9,8 +9,7 @@ Interni::Interni(const std::string &season, const std::string &lang)
 {
     setUrl(m_website_url);
 
-    setSeasonsPrintBehavior(std::make_shared<NoSeasonsPrintBehavior>());
-
+    setSeasonsPrintBehavior(std::make_unique<NoSeasonsPrintBehavior>());
 }
 
 

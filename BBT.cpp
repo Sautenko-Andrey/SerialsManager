@@ -13,7 +13,7 @@ BigBangTheory::BigBangTheory(const std::string &season,
     setVoiceUrlEng(m_orig_voice);
     setSeasonUrl(m_season_template);
     setMaxSeasonNumber(m_seasons_nums);
-    setSeasonsPrintBehavior(std::make_shared<HasSeasonsPrintBehavior>());
+    setSeasonsPrintBehavior(std::make_unique<HasSeasonsPrintBehavior>());
 }
 
 

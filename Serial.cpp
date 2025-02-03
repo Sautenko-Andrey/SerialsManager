@@ -137,9 +137,9 @@ void Serial::printSeasons() const{
 
 
 void Serial::setSeasonsPrintBehavior(
-        std::shared_ptr<SeasonsPrintBehavior> behavior)
+        std::unique_ptr<SeasonsPrintBehavior> &&behavior)
 {
     if(behavior != nullptr){
-        m_ptr_seasons_print = behavior;
+        m_ptr_seasons_print = std::move(behavior);
     }
 }

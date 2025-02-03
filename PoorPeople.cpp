@@ -9,7 +9,7 @@ PoorPeople::PoorPeople(const std::string &season,
 : Serial(season, voice)
 {
     setUrl(m_website_url);
-    setSeasonsPrintBehavior(std::make_shared<NoSeasonsPrintBehavior>());
+    setSeasonsPrintBehavior(std::make_unique<NoSeasonsPrintBehavior>());
 }
 
 
