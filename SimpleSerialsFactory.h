@@ -6,7 +6,7 @@
 enum class AvailableSerials{
     Brassic, HowIMetYourMother, TwoAndAHalfMen,
     BigBangTheory, AccordingToJim, SiliconValley,
-    PoorPeople, NewGirl
+    PoorPeople, NewGirl, Interni
 };
 
 class SimpleSerialsFactory {

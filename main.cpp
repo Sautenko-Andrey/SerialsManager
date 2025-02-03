@@ -15,6 +15,7 @@
 #include"BBT.h"
 #include"PoorPeople.h"
 #include"NewGirl.h"
+#include"Interni.h"
 #include"SerialsStore.h"
 #include"Help.h"
 
@@ -44,7 +45,8 @@ int main(int argc, char **argv){
         {"-t" , AvailableSerials::TwoAndAHalfMen},
         {"-bbt" , AvailableSerials::BigBangTheory},
         {"-p", AvailableSerials::PoorPeople},
-        {"-n", AvailableSerials::NewGirl}
+        {"-n", AvailableSerials::NewGirl},
+        {"-i", AvailableSerials::Interni}
     };
 
     // Process when user types --serials command

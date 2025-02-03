@@ -7,6 +7,7 @@
 #include"BBT.h"
 #include"PoorPeople.h"
 #include"NewGirl.h"
+#include"Interni.h"
 #include<iostream>
 
 
@@ -50,6 +51,10 @@ std::shared_ptr<Serial> SimpleSerialsFactory::createSerial(
 
     case AvailableSerials::NewGirl:
         serial = std::make_shared<NewGirl>(season, lang);
+        break;
+
+    case AvailableSerials::Interni:
+        serial = std::make_shared<Interni>(season, lang);
         break;
 
     default:
