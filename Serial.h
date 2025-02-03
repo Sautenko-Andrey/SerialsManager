@@ -22,14 +22,20 @@ public:
     void setVoiceUrlRus(const std::string &voice_url_rus);
     void setSeasonUrl(const std::string &season_url);
     void setMaxSeasonNumber(const int number);
+    void setMaxSeasonNumber(double number) = delete;
+    void setMaxSeasonNumber(bool number) = delete;
 
     constexpr int getSeasonsNumber() const;
 
     void printSeasons() const;
 
-
+    // For r-value param
     void setSeasonsPrintBehavior(
         std::unique_ptr<SeasonsPrintBehavior> &&behavior);
+    
+    // For l-value param
+    void setSeasonsPrintBehavior(
+        std::unique_ptr<SeasonsPrintBehavior> &behavior);
     
 
 private:

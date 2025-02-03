@@ -143,3 +143,12 @@ void Serial::setSeasonsPrintBehavior(
         m_ptr_seasons_print = std::move(behavior);
     }
 }
+
+
+void Serial::setSeasonsPrintBehavior(
+        std::unique_ptr<SeasonsPrintBehavior> &behavior)
+{
+    if(behavior != nullptr){
+        m_ptr_seasons_print = std::move(behavior);
+    }
+}
