@@ -7,7 +7,7 @@ class SerialsStore {
 
 public:
 
-    SerialsStore(std::unique_ptr<SimpleSerialsFactory> factory)
+    explicit SerialsStore(std::unique_ptr<SimpleSerialsFactory> &&factory)
     : m_factory{std::move(factory)}{}
 
 
