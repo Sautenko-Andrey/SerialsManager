@@ -4,9 +4,10 @@
 #include"NoSeasonsPrintBehavior.h"
 
 
-PoorPeople::PoorPeople(const std::string &season,
-                                 const std::string &voice)
-: Serial(season, voice)
+
+PoorPeople::PoorPeople(std::string season, std::string voice)
+:
+Serial(std::move(season), std::move(voice))
 {
     setUrl(m_website_url);
     setSeasonsPrintBehavior(std::make_unique<NoSeasonsPrintBehavior>());

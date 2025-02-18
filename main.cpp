@@ -74,7 +74,7 @@ int main(int argc, char **argv){
     }
 
     // Find the main argument - serial's name
-    AvailableSerials serial;
+    AvailableSerials serial = AvailableSerials::None;
     for(int i{1}; i < argc; ++i){
         auto it_serial_name = serials.find(argv[i]);
         if(it_serial_name != serials.end()){

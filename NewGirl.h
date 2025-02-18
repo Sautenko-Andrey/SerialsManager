@@ -7,7 +7,7 @@ class NewGirl : public Serial {
 
 public:
 
-    NewGirl(const std::string &season, const std::string &lang);
+    NewGirl(std::string season, std::string lang);
 
     const std::string& who() const override;
 

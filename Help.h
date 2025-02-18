@@ -2,8 +2,8 @@
 
 constexpr const char *help_message = "\n-----This is guide how to use"
 " <serials tool>-----------------\n"
-"Version:\t0.0.3\n"
-"Released:\t3.02.2025\n"
+"Version:\t0.0.4\n"
+"Released:\t18.02.2025\n"
 "-------------------------------------------------------------\n"
 "\nAvailable serials:\n"
 "-------------------------------------------------------------\n"

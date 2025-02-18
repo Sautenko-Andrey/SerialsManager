@@ -4,8 +4,10 @@
 #include"HasSeasonsPrintBehavior.h"
 
 
-HIMYM::HIMYM(const std::string &season, const std::string &lang)
-: Serial(season, lang)
+
+HIMYM::HIMYM(std::string season, std::string lang)
+:
+Serial(std::move(season), std::move(lang))
 {
     setUrl(m_website_url);
     setVoiceUrlRus(m_rus_voice);

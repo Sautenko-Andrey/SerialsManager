@@ -19,7 +19,7 @@ public:
 
         serial = m_factory->createSerial(selected_serial, season, lang);
 
-        return std::move(serial);
+        return serial;  //NRVO — Named Return Value Optimization
     }
 
 

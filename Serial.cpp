@@ -3,8 +3,11 @@
 
 
 // Constructor
-Serial::Serial(const std::string &season, const std::string &voice)
-: m_season{season}, m_voice{voice} {}
+Serial::Serial(std::string season, std::string voice)
+:
+m_season{std::move(season)},
+m_voice{std::move(voice)}
+{}
 
 
 // Methods
@@ -91,33 +94,6 @@ void Serial::openSerial(){
 }
 
 
-void Serial::checkAndSetStr(std::string &first, const std::string &second){
-    if(!second.empty()){
-        first = second;
-    }
-}
-
-
-void Serial::setUrl(const std::string &url){
-    checkAndSetStr(m_url, url);
-}
-
-
-void Serial::setVoiceUrlEng(const std::string &voice_url_eng){
-    checkAndSetStr(m_voice_url_eng, voice_url_eng);
-}
-
-
-void Serial::setVoiceUrlRus(const std::string &voice_url_rus){
-    checkAndSetStr(m_voice_url_rus, voice_url_rus);
-}
-
-
-void Serial::setSeasonUrl(const std::string &season_url){
-    checkAndSetStr(m_season_url, season_url);
-}
-
-
 void Serial::setMaxSeasonNumber(const int number){
     if(number > m_max_season_number){
         m_max_season_number = number;
@@ -138,15 +114,6 @@ void Serial::printSeasons() const{
 
 void Serial::setSeasonsPrintBehavior(
         std::unique_ptr<SeasonsPrintBehavior> &&behavior)
-{
-    if(behavior != nullptr){
-        m_ptr_seasons_print = std::move(behavior);
-    }
-}
-
-
-void Serial::setSeasonsPrintBehavior(
-        std::unique_ptr<SeasonsPrintBehavior> &behavior)
 {
     if(behavior != nullptr){
         m_ptr_seasons_print = std::move(behavior);

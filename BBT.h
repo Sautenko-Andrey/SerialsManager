@@ -7,7 +7,7 @@ class BigBangTheory : public Serial {
 
 public:
 
-    BigBangTheory(const std::string &season, const std::string &lang);
+    BigBangTheory(std::string season, std::string lang);
 
     const std::string& who() const override;
 

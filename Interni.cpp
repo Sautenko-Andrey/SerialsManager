@@ -4,8 +4,10 @@
 #include"NoSeasonsPrintBehavior.h"
 
 
-Interni::Interni(const std::string &season, const std::string &lang)
-: Serial(season, lang)
+
+Interni::Interni(std::string season, std::string lang)
+:
+Serial(std::move(season), std::move(lang))
 {
     setUrl(m_website_url);
 

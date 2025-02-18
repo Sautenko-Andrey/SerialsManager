@@ -8,7 +8,7 @@ class Serial {
 
 public:
 
-    Serial(const std::string &season, const std::string &voice);
+    Serial(std::string season, std::string voice);
 
     virtual ~Serial() = default;
 
@@ -17,10 +17,26 @@ public:
     void openSerial(std::string &season, std::string &voice);
     void openSerial();
 
-    void setUrl(const std::string &url);
-    void setVoiceUrlEng(const std::string &voice_url_eng);
-    void setVoiceUrlRus(const std::string &voice_url_rus);
-    void setSeasonUrl(const std::string &season_url);
+    template<typename T>
+    void setUrl(T &&url){
+        checkAndSetStr(m_url, std::forward<T>(url));
+    }
+
+    template<typename T>
+    void setVoiceUrlEng(T &&voice_url_eng){
+        checkAndSetStr(m_voice_url_eng, std::forward<T>(voice_url_eng));
+    }
+
+    template<typename T>
+    void setVoiceUrlRus(T &&voice_url_rus){
+        checkAndSetStr(m_voice_url_rus, std::forward<T>(voice_url_rus));
+    }
+
+    template<typename T>
+    void setSeasonUrl(T &&season_url){
+        checkAndSetStr(m_season_url, std::forward<T>(season_url));
+    }
+
     void setMaxSeasonNumber(const int number);
     void setMaxSeasonNumber(double number) = delete;
     void setMaxSeasonNumber(bool number) = delete;
@@ -32,16 +48,23 @@ public:
     // For r-value param
     void setSeasonsPrintBehavior(
         std::unique_ptr<SeasonsPrintBehavior> &&behavior);
-    
-    // For l-value param
-    void setSeasonsPrintBehavior(
-        std::unique_ptr<SeasonsPrintBehavior> &behavior);
+
+    // Prohibit copy and move
+    Serial(const Serial &other) = delete;
+    Serial& operator=(const Serial &other) = delete;
+    Serial(Serial &&other) = delete;
+    Serial& operator=(Serial &&other) = delete;
     
 
 private:
 
-    inline void checkAndSetStr(std::string &first,
-                               const std::string &second);
+    template<typename T>
+    void checkAndSetStr(std::string &first_str, T &&second_str)
+    {
+        if(!second_str.empty()){
+            first_str = std::forward<T>(second_str);
+        }
+    }
 
     std::string m_season;
     std::string m_voice;

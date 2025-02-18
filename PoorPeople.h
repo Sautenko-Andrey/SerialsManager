@@ -7,7 +7,7 @@ class PoorPeople : public Serial {
 
 public:
 
-    PoorPeople(const std::string &season, const std::string &voice);
+    PoorPeople(std::string season, std::string voice);
 
     const std::string& who() const override;
 

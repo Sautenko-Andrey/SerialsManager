@@ -4,8 +4,10 @@
 #include"NoSeasonsPrintBehavior.h"
 
 
-NewGirl::NewGirl(const std::string &season, const std::string &lang)
-: Serial(season, lang)
+
+NewGirl::NewGirl(std::string season, std::string lang)
+:
+Serial(std::move(season), std::move(lang))
 {
     setUrl(m_website_url);
 

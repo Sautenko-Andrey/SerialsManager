@@ -4,9 +4,10 @@
 #include"HasSeasonsPrintBehavior.h"
 
 
-SiliconValley::SiliconValley(const std::string &season,
-                             const std::string &lang)
-: Serial(season, lang)
+
+SiliconValley::SiliconValley(std::string season, std::string lang)
+:
+Serial(std::move(season), std::move(lang))
 {
     setUrl(m_website_url);
     setVoiceUrlRus(m_rus_voice);
