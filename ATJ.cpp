@@ -5,9 +5,9 @@
 
 
 
-ATJ::ATJ(std::string season, std::string lang)
+ATJ::ATJ(const std::string &season, const std::string &lang)
 :
-Serial(std::move(season), std::move(lang))
+Serial(season, lang)
 {
     setUrl(m_website_url);
     setSeasonsPrintBehavior(std::make_unique<NoSeasonsPrintBehavior>());

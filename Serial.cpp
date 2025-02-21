@@ -3,10 +3,10 @@
 
 
 // Constructor
-Serial::Serial(std::string season, std::string voice)
+Serial::Serial(const std::string &season, const std::string &voice)
 :
-m_season{std::move(season)},
-m_voice{std::move(voice)}
+m_season{season},
+m_voice{voice}
 {}
 
 

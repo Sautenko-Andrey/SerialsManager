@@ -7,7 +7,7 @@ class Brassic : public Serial {
 
 public:
 
-    Brassic(std::string season, std::string lang);
+    Brassic(const std::string &season, const std::string &lang);
 
     const std::string& who() const override;
 

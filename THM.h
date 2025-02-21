@@ -7,7 +7,7 @@ class THM : public Serial {
 
 public:
 
-    THM(std::string season, std::string lang);
+    THM(const std::string &season, const std::string &lang);
 
     const std::string& who() const override;
 

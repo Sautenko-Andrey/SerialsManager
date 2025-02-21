@@ -5,9 +5,9 @@
 
 
 
-PoorPeople::PoorPeople(std::string season, std::string voice)
+PoorPeople::PoorPeople(const std::string &season, const std::string &lang)
 :
-Serial(std::move(season), std::move(voice))
+Serial(season, lang)
 {
     setUrl(m_website_url);
     setSeasonsPrintBehavior(std::make_unique<NoSeasonsPrintBehavior>());

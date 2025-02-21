@@ -7,7 +7,7 @@ class SiliconValley : public Serial {
 
 public:
 
-    SiliconValley(std::string season, std::string lang);
+    SiliconValley(const std::string &season, const std::string &lang);
 
     const std::string& who() const override;
 

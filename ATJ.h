@@ -7,7 +7,7 @@ class ATJ : public Serial {
 
 public:
 
-    ATJ(std::string season, std::string lang);
+    ATJ(const std::string &season, const std::string &lang);
 
     const std::string& who() const override;
 

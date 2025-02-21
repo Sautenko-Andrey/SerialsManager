@@ -7,7 +7,7 @@ class Interni : public Serial {
 
 public:
 
-    Interni(std::string season, std::string lang);
+    Interni(const std::string &season, const std::string &lang);
 
     const std::string& who() const override;
 

@@ -5,9 +5,9 @@
 
 
 
-Brassic::Brassic(std::string season, std::string lang)
+Brassic::Brassic(const std::string &season, const std::string &lang)
 :
-Serial(std::move(season), std::move(lang))
+Serial(season, lang)
 {
     setUrl(m_website_url);
     setVoiceUrlRus(m_rus_voice);

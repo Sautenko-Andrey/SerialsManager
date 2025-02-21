@@ -8,7 +8,7 @@ class Serial {
 
 public:
 
-    Serial(std::string season, std::string voice);
+    Serial(const std::string &season, const std::string &voice);
 
     virtual ~Serial() = default;
 
