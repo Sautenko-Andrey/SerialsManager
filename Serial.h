@@ -18,22 +18,26 @@ public:
     void openSerial();
 
     template<typename T>
-    void setUrl(T &&url){
+    std::enable_if_t<std::is_convertible_v<T, std::string>>
+    setUrl(T &&url){
         checkAndSetStr(m_url, std::forward<T>(url));
     }
 
     template<typename T>
-    void setVoiceUrlEng(T &&voice_url_eng){
+    std::enable_if_t<std::is_convertible_v<T, std::string>>
+    setVoiceUrlEng(T &&voice_url_eng){
         checkAndSetStr(m_voice_url_eng, std::forward<T>(voice_url_eng));
     }
 
     template<typename T>
-    void setVoiceUrlRus(T &&voice_url_rus){
+    std::enable_if_t<std::is_convertible_v<T, std::string>>
+    setVoiceUrlRus(T &&voice_url_rus){
         checkAndSetStr(m_voice_url_rus, std::forward<T>(voice_url_rus));
     }
 
     template<typename T>
-    void setSeasonUrl(T &&season_url){
+    std::enable_if_t<std::is_convertible_v<T, std::string>>
+    setSeasonUrl(T &&season_url){
         checkAndSetStr(m_season_url, std::forward<T>(season_url));
     }
 
@@ -59,7 +63,8 @@ public:
 private:
 
     template<typename T>
-    void checkAndSetStr(std::string &first_str, T &&second_str)
+    std::enable_if_t<std::is_convertible_v<T, std::string>>
+    checkAndSetStr(std::string &first_str, T &&second_str)
     {
         if(!second_str.empty()){
             first_str = std::forward<T>(second_str);
