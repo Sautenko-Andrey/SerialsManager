@@ -13,12 +13,13 @@
 #include"PoorPeople.h"
 #include"NewGirl.h"
 #include"Interni.h"
+#include"ItCrowd.h"
 #include<iostream>
 
 enum class AvailableSerials{
     Brassic, HowIMetYourMother, TwoAndAHalfMen,
     BigBangTheory, AccordingToJim, SiliconValley,
-    PoorPeople, NewGirl, Interni, None
+    PoorPeople, NewGirl, Interni, ItCrowd, None
 };
 
 class SimpleSerialsFactory {
@@ -100,6 +101,13 @@ template<typename T>
     
         case AvailableSerials::Interni:
             return std::make_unique<Interni>(
+                std::forward<T>(season),
+                std::forward<T>(lang)
+            );
+            break;
+
+        case AvailableSerials::ItCrowd:
+            return std::make_unique<ItCrowd>(
                 std::forward<T>(season),
                 std::forward<T>(lang)
             );
